@@ -113,7 +113,7 @@ h3, p{
 <span style="display:none" id="hiddenweek"></span>
 <span style="display:none" id="hiddenday"></span>
 
-<p id='info'>Hover over a destination.</p>
+<p id='info'>Hover over a destination to find the dates I will be visiting each country.</p>
 <div class="tab" id="tabs">
   <button class="tablinks" id="initialFocus" onclick="openTab(event, 'destinations')">Destinations</button>
 </div>
@@ -276,21 +276,72 @@ function wherearethey(destinations) {
     var timeofday = document.getElementById('hiddentime').innerHTML;
     var weeknumber = document.getElementById('hiddenweek').innerHTML;
     var daynumber = document.getElementById('hiddenday').innerHTML;
-    var locations = getlocations();
+    var locations = getlocations1(destinations);
     var index = getdestinationsindex(destinations);
     var infostring = '';
 	if (locations == 0) {
         infostring = 'Aston is not traveling at this time.';
     }
     else {
-        infostring = "Aston is currently in " + locations;
+        infostring = "Dates: " + locations; // change to be when will be in each place.
     }
     document.getElementById('info').innerHTML = infostring;
 }
 
 function resethover() {
-    document.getElementById('info').innerHTML = "Hover over a destinations.";
+    document.getElementById('info').innerHTML = "Hover over a destination to find the dates I will be visiting each country.";
 }
+
+function getlocations1(destinations) {
+	if (destinations == 'GRC')
+         {
+        locations = "08.10.25 - 15.10.25";
+    }
+	else if (destinations == 'THA')
+         {
+        locations = "15.10.25 - 19.11.25";
+    }
+	else if (destinations == 'VNM')
+         {
+        locations = "19.11.25 - 17.12.25";
+    }
+	else if (destinations == 'CHN')
+         {
+        locations = "17.12.25 - 21.01.26";
+    }
+	else if (destinations == 'JPN')
+         {
+        locations = "21.01.26 - 18.02.26";
+    }
+	else if (destinations == 'NZL')
+         {
+        locations = "18.02.26 - 18.03.26";
+    }
+	else if (destinations == 'AUS')
+         {
+        locations = "18.03.26 - 16.04.26";
+    }
+	else if (destinations == 'PER')
+         {
+        locations = "16.04.26 - 06.05.26";
+    }
+	else if (destinations == 'CHL')
+         {
+        locations = "06.05.26 - 20.05.26";
+    }
+	else if (destinations == 'CAN')
+         {
+        locations = "20.05.26 - 30.05.26";
+    }
+	else {
+        locations = 0;
+    }
+	
+    return locations;
+}
+
+
+
 
 function getlocations() {
     if ((Date.parse('October 24, 2022') < Date.now() && Date.now() < Date.parse('October 7, 2025'))
@@ -367,7 +418,7 @@ function puttime() {
     } else {
         infostring = "Aston is currently in " + locations;
     }
-    document.getElementById('timedate').innerHTML = date + '. ' + infostring;
+    document.getElementById('timedate').innerHTML = date + '. '+ '<br>'+ infostring;
     document.getElementById('hiddentime').innerHTML = hiddentime; // minutes since 0900
     document.getElementById('hiddenweek').innerHTML = weeknumber; // weeknumber where 31 Aug is 0
     document.getElementById('hiddenday').innerHTML = daynumber; // day number where Mon is 0
