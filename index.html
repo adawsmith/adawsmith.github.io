@@ -218,8 +218,8 @@ function destinations_table(destinations, column) {
 		
     }
 	//else if (destinations == "THA") {
-	//	string += '<a href="https://adawsmith.github.io/Thailand.html">Visit Thailand!</a>'
-		//https://<user>.github.io/<repository>/about/contact-us.html
+	//	string += '<a href="adawsmith.github.io/Thailand.html">Visit Thailand!</a>'
+		//<user>.github.io/<repository>/about/contact-us.html
 	//}
 	//if (destinations == "THA") {
 		//var colour = darktheme[1];
@@ -250,10 +250,11 @@ function destinations_tab(destinations) {
     buttonstring += 'onmouseout="resethover()" ';
     //buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
 	if (destinations == 'THA') {
-		buttonstring += 'class="tablinks" onclick="location.href = 'adawsmith.github.io/Thailand.html';" >' + destinations;
+		buttonstring += 'class="tablinks" onclick="location.href = 'adawsmith.github.io/Thailand.html';" >';
 	}
 	else {
-		buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
+		//buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
+		buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">';
 	}
     buttonstring += '</button>'
     document.getElementById('tabs').innerHTML += buttonstring;
