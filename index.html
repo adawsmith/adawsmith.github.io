@@ -146,6 +146,8 @@ function openTab(evt, tabName) {
   }
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
+  
+  
 }
 
 function get_locations(column) {
@@ -214,8 +216,9 @@ function destinations_table(destinations, column) {
 		string += '<h4 style="color:#b1eb9c;">' +  'this is example text' + '</h4>';	
 		
     }
-	else if (destinations == "GRC") {
+	else if (destinations == "THA") {
 		string += '<a href="https://adawsmith.github.io/Thailand.html">Visit Thailand!</a>'
+		//https://<user>.github.io/<repository>/about/contact-us.html
 	}
 	//if (destinations == "THA") {
 		//var colour = darktheme[1];
