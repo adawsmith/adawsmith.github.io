@@ -255,7 +255,7 @@ function destinations_tab(destinations) {
 	else {
 		//buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
 		buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
-	}
+	//}
     buttonstring += '</button>'
     document.getElementById('tabs').innerHTML += buttonstring;
     // add the tab itself
@@ -265,6 +265,7 @@ function destinations_tab(destinations) {
     tabstring += '<div id=' + idstring + '>';
     tabstring += '</div>';
     document.getElementById('destinationstabs').innerHTML += tabstring;
+	}
 }
 
 function get_destinations() {
