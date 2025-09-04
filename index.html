@@ -247,7 +247,13 @@ function destinations_tab(destinations) {
     var buttonstring = '';
     buttonstring += '<button onmouseover="wherearethey(\'' + destinations + '\')" ';
     buttonstring += 'onmouseout="resethover()" ';
-    buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
+    //buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
+	if (destination == 'THA') {
+		buttonstring += 'class="tablinks" onclick="location.href = 'https://adawsmith.github.io/Thailand.html';">' + destinations;
+	}
+	else {
+	buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
+	}
     buttonstring += '</button>'
     document.getElementById('tabs').innerHTML += buttonstring;
     // add the tab itself
