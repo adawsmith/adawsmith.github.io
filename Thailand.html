@@ -188,7 +188,6 @@ function md_table() {
 
 function destinations_table(destinations, column) {
     var locations = get_locations(column + 1);
-
     var darktheme = ['#abe2f7', '#2eb7ed', '#b1eb9c', '#ff748c', '#a8a2d2', '#96d6c3', '#ffc0cb', '#a369cf', '#a8a2d2', '#9c58a1', '#dd3f4e', '#b91655', '#db2879', '#dd6ba7', '#df4018', '#ffe001', '#1d57a9', '#1e90ff', '#579abe', '#dc322f', '#2aa198'];
 	var idstring = destinations + 'tt';
 	var string = ''
@@ -202,7 +201,7 @@ function destinations_table(destinations, column) {
 		var colour = darktheme[0];
 		var locations_style_string = 'style="color:' + colour + '"';
 		string += '<h4>' +  'this is example text' + '</h4>';	
-		string += '<img src="Athens.jpg" alt="Athens" style="width:15%">';
+		string += '<img src="Thailand.jpg" alt="Thailand" style="width:15%">';
 		string += '<h4 style="color:#b1eb9c;">' +  'this is example text' + '</h4>';	
 		
     }
@@ -224,15 +223,7 @@ function destinations_tab(destinations) {
     var buttonstring = '';
     buttonstring += '<button onmouseover="wherearethey(\'' + destinations + '\')" ';
     buttonstring += 'onmouseout="resethover()" ';
-    //buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
-	//if (destinations == 'THA') {
-	//	buttonstring += 'class="tablinks" onclick="href = "adawsmith.github.io/Thailand.html";" >' + destinations;
-	//	//buttonstring += 'class="tablinks" onclick="location.href = "https://adawsmith.github.io/Thailand.html";" >' + destinations;
-	//}
-	//else {
-		//buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
-	buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
-	//}
+	buttonstring += 'class="tablinks" id="'+destinations+'" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
     buttonstring += '</button>'
     document.getElementById('tabs').innerHTML += buttonstring;
     // add the tab itself
@@ -419,9 +410,6 @@ function puttime() {
     document.getElementById('hiddenday').innerHTML = daynumber; // day number where Mon is 0
 	
 }
-
-// teacher = destinations
-// lessons = locations
 
 
 function setup() {
