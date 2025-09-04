@@ -205,6 +205,9 @@ function destinations_table(destinations, column) {
 		string += '<h4 style="color:#b1eb9c;">' +  'this is example text' + '</h4>';	
 		
     }
+	//else {
+	//	string += '<h4>' +  'this is a place holder' + '</h4>';
+	//}
 
 // add unique stuff here? 	
 	
@@ -223,7 +226,7 @@ function destinations_tab(destinations) {
     var buttonstring = '';
     buttonstring += '<button onmouseover="wherearethey(\'' + destinations + '\')" ';
     buttonstring += 'onmouseout="resethover()" ';
-	buttonstring += 'class="tablinks" id="'+destinations+'" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
+	buttonstring += 'class="tablinks" id="'+destinations+'1" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
     buttonstring += '</button>'
     document.getElementById('tabs').innerHTML += buttonstring;
     // add the tab itself
@@ -421,12 +424,14 @@ function setup() {
     }
     for (var i = 0; i < destinations.length; i++) {
         destinations_table(destinations[i], i);
+		//console.log(destinations[i])
     }
     var wholepage = document.getElementsByTagName('html')[0];
     wholepage.style.height = '100%';
     wholepage.style.background = '#373634';
 	// #373634   #1c2227
-	document.getElementById('THA').click();
+	//document.getElementById('initialFocus').click();
+	document.getElementById('THA1').click();
     setInterval(puttime, 1000); 
 }
 window.onload = setup;
