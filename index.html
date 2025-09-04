@@ -148,7 +148,7 @@ function openTab(evt, tabName) {
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
 	if (tabName == 'THA'){
-	location.replace("Thailand.html")
+	location.replace("https://adawsmith.github.io/Thailand.html")
 	}
 }
 
@@ -218,22 +218,7 @@ function destinations_table(destinations, column) {
 		string += '<h4 style="color:#b1eb9c;">' +  'this is example text' + '</h4>';	
 		
     }
-	else if (destinations == "THA") {
-		//string += '<a href="adawsmith.github.io/Thailand.html">Visit Thailand!</a>'
-		//string += location.replace("adawsmith.github.io/Thailand.html")
-		//<user>.github.io/<repository>/about/contact-us.html
-	}
-	//if (destinations == "THA") {
-		//var colour = darktheme[1];
-		//var locations_style_string = 'style="color:' + colour + '"';
-        //ttstring += '<td ' + locations_style_string + '>' + 'My time in Thailand.' + '</td>';
-		//ttstring += '<tr>';
-		//ttstring += '<td></td>';
-		//ttstring += '<tr>';
-		//ttstring += '<td ' + locations_style_string + '>' + 'When I am there.' + '</td>';
-    //}
 	
-// add unique stuff here? 	
 	
 	document.getElementById(idstring).innerHTML = string;	
 //document.getElementById(idstring).innerHTML = ttstring;
