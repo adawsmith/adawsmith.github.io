@@ -115,8 +115,8 @@ h3, p{
 
 <p id='info'>Hover over a destination to find the dates I will be visiting each country.</p>
 <div class="tab" id="tabs">
-  <!-- <button class="tablinks" id="initialFocus" onclick="openTab(event, 'destinations')">Destinations</button> -->
-  <button class="tablinks" id="initialFocus">Destinations</button>
+  <button class="tablinks" id="initialFocus" onclick="openTab(event, 'destinations')">Destinations</button>
+  <!-- <button class="tablinks" id="initialFocus">Destinations</button> -->
 </div>
 
 <div id="destinations" class="tabcontent">
@@ -147,8 +147,7 @@ function openTab(evt, tabName) {
   }
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
-  
-  
+
 }
 
 function get_locations(column) {
@@ -217,10 +216,11 @@ function destinations_table(destinations, column) {
 		string += '<h4 style="color:#b1eb9c;">' +  'this is example text' + '</h4>';	
 		
     }
-	//else if (destinations == "THA") {
-	//	string += '<a href="adawsmith.github.io/Thailand.html">Visit Thailand!</a>'
+	else if (destinations == "THA") {
+		//string += '<a href="adawsmith.github.io/Thailand.html">Visit Thailand!</a>'
+		string += 'location.replace("adawsmith.github.io/Thailand.html")
 		//<user>.github.io/<repository>/about/contact-us.html
-	//}
+	}
 	//if (destinations == "THA") {
 		//var colour = darktheme[1];
 		//var locations_style_string = 'style="color:' + colour + '"';
@@ -249,14 +249,14 @@ function destinations_tab(destinations) {
     buttonstring += '<button onmouseover="wherearethey(\'' + destinations + '\')" ';
     buttonstring += 'onmouseout="resethover()" ';
     //buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
-	if (destinations == 'THA') {
-		buttonstring += 'class="tablinks" onclick="href = "adawsmith.github.io/Thailand.html";" >' + destinations;
-		//buttonstring += 'class="tablinks" onclick="location.href = "https://adawsmith.github.io/Thailand.html";" >' + destinations;
-	}
-	else {
+	//if (destinations == 'THA') {
+	//	buttonstring += 'class="tablinks" onclick="href = "adawsmith.github.io/Thailand.html";" >' + destinations;
+	//	//buttonstring += 'class="tablinks" onclick="location.href = "https://adawsmith.github.io/Thailand.html";" >' + destinations;
+	//}
+	//else {
 		//buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
-		buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
-	}
+	buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
+	//}
     buttonstring += '</button>'
     document.getElementById('tabs').innerHTML += buttonstring;
     // add the tab itself
