@@ -232,9 +232,9 @@ function destinations_tab(destinations) {
     var idstring = destinations + 'tt';
     tabstring += '<div id=' + idstring + '>';
     tabstring += '</div>';
-	console.log(buttonstring)
-	console.log(idstring)
-	console.log(tabstring)
+//	console.log(buttonstring)
+//	console.log(idstring)
+//	console.log(tabstring)
     document.getElementById('destinationstabs').innerHTML += tabstring;
 	
 }
@@ -426,7 +426,7 @@ function setup() {
     wholepage.style.height = '100%';
     wholepage.style.background = '#373634';
 	// #373634   #1c2227
-    document.getElementById('THA').click();
+	document.getElementById('THA').click();
     setInterval(puttime, 1000); 
 }
 window.onload = setup;
