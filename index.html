@@ -150,7 +150,7 @@ function openTab(evt, tabName) {
 	if (tabName == 'THA'){
 	location.replace("https://adawsmith.github.io/Thailand.html")
 	}
-	else if (tabName == 'GRC'){
+	if (tabName == 'GRC'){
 	location.replace("https://adawsmith.github.io/Greece.html")
 	}
 }
@@ -208,19 +208,19 @@ function destinations_table(destinations, column) {
 							 'CAN' : 'Canada'  
                   };
 	
-	if (destinations == "GRC") {
-		var colour = darktheme[0];
-		var locations_style_string = 'style="color:' + colour + '"';
+	//if (destinations == "GRC") {
+		//var colour = darktheme[0];
+		//var locations_style_string = 'style="color:' + colour + '"';
         //ttstring += '<td ' + locations_style_string + '>' + 'My time in Greece.' + '</td>';
 		//ttstring += '<tr>';
 		//ttstring += '<td></td>';
 		//ttstring += '<tr>';
 		//ttstring += '<td ' + locations_style_string + '>' + 'When I am there.' + '</td>';
-		string += '<h4>' +  'this is example text' + '</h4>';	
-		string += '<img src="Athens.jpg" alt="Athens" style="width:15%">';
-		string += '<h4 style="color:#b1eb9c;">' +  'this is example text' + '</h4>';	
+		//string += '<h4>' +  'this is example text' + '</h4>';	
+		//string += '<img src="Athens.jpg" alt="Athens" style="width:15%">';
+		//string += '<h4 style="color:#b1eb9c;">' +  'this is example text' + '</h4>';	
 		
-    }
+    //}
 	
 	
 	document.getElementById(idstring).innerHTML = string;	
