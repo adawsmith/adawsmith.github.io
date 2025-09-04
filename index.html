@@ -115,7 +115,7 @@ h3, p{
 
 <p id='info'>Hover over a destination to find the dates I will be visiting each country.</p>
 <div class="tab" id="tabs">
-  //<button class="tablinks" id="initialFocus" onclick="openTab(event, 'destinations')">Destinations</button>
+  <!-- <button class="tablinks" id="initialFocus" onclick="openTab(event, 'destinations')">Destinations</button> -->
   <button class="tablinks" id="initialFocus">Destinations</button>
 </div>
 
@@ -250,10 +250,10 @@ function destinations_tab(destinations) {
     buttonstring += 'onmouseout="resethover()" ';
     //buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
 	if (destinations == 'THA') {
-		buttonstring += 'class="tablinks" onclick="location.href = "adawsmith.github.io/Thailand.html";" >' + destinations;
+		buttonstring += 'class="tablinks" onclick="location.href = 'adawsmith.github.io/Thailand.html';" >' + destinations;
 	}
 	else {
-	buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
+		buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
 	}
     buttonstring += '</button>'
     document.getElementById('tabs').innerHTML += buttonstring;
