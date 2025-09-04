@@ -150,9 +150,10 @@ function openTab(evt, tabName) {
 	if (tabName == 'destinations'){
 	location.replace("https://adawsmith.github.io/")
 	}
-	if (tabName == 'GRC'){
-	location.replace("https://adawsmith.github.io/Greece.html")
+	if (tabName == 'THA'){
+	location.replace("https://adawsmith.github.io/Thailand.html")
 	}
+	
 }
 
 function get_locations(column) {
@@ -200,11 +201,11 @@ function destinations_table(destinations, column) {
 							 'CAN' : 'Canada'  
                   };
 	
-	if (destinations == "THA") {
+	if (destinations == "GRC") {
 		var colour = darktheme[0];
 		var locations_style_string = 'style="color:' + colour + '"';
 		string += '<h4>' +  'this is example text' + '</h4>';	
-		string += '<img src="Thailand.jpg" alt="Thailand" style="width:15%">';
+		string += '<img src="Athens.jpg" alt="Athens" style="width:15%">';
 		string += '<h4 style="color:#b1eb9c;">' +  'this is example text' + '</h4>';	
 		
     }
@@ -434,7 +435,7 @@ function setup() {
     wholepage.style.background = '#373634';
 	// #373634   #1c2227
 	//document.getElementById('initialFocus').click();
-	document.getElementById('THA1').click();
+	document.getElementById('GRC1').click();
     setInterval(puttime, 1000); 
 }
 window.onload = setup;
