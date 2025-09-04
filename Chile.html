@@ -229,11 +229,11 @@ function destinations_table(destinations, column) {
 							 'CAN' : 'Canada'  
                   };
 	
-	if (destinations == "PER") {
+	if (destinations == "CHL") {
 		var colour = darktheme[0];
 		var locations_style_string = 'style="color:' + colour + '"';
 		string += '<h4>' +  'this is example text' + '</h4>';	
-		string += '<img src="Peru.png" alt="Peru" style="width:15%">';
+		string += '<img src="Chile.png" alt="Chile" style="width:15%">';
 		string += '<h4 style="color:#b1eb9c;">' +  'this is example text' + '</h4>';	
 		
     }
@@ -463,7 +463,7 @@ function setup() {
     wholepage.style.background = '#373634';
 	// #373634   #1c2227
 	//document.getElementById('initialFocus').click();
-	document.getElementById('PER1').click();
+	document.getElementById('CHL1').click();
     setInterval(puttime, 0); 
 }
 window.onload = setup;
