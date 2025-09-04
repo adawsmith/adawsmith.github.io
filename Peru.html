@@ -147,9 +147,9 @@ function openTab(evt, tabName) {
   }
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
-	//if (tabName == 'destinations'){
-	//location.replace("https://adawsmith.github.io/")
-	//}
+	if (tabName == 'destinations'){
+	location.replace("https://adawsmith.github.io/")
+	}
 	if (tabName == 'THA'){
 	location.replace("https://adawsmith.github.io/Thailand.html")
 	}
@@ -171,15 +171,16 @@ function openTab(evt, tabName) {
 	if (tabName == 'AUS'){
 	location.replace("https://adawsmith.github.io/Australia.html")
 	}
-	if (tabName == 'PER'){
-	location.replace("https://adawsmith.github.io/Peru.html")
-	}
+	//if (tabName == 'PER'){
+	//location.replace("https://adawsmith.github.io/Peru.html")
+	//}
 	if (tabName == 'CHL'){
 	location.replace("https://adawsmith.github.io/Chile.html")
 	}
 	if (tabName == 'CAN'){
 	location.replace("https://adawsmith.github.io/Canada.html")
 	}
+	
 }
 
 function get_locations(column) {
@@ -215,18 +216,10 @@ function md_table() {
     ttstring += '</table>';
     document.getElementById('dest').innerHTML = ttstring;
 }
-// teacher = destinations
-// lessons = locations
+
 function destinations_table(destinations, column) {
     var locations = get_locations(column + 1);
-    //var locations_colours = {};
     var darktheme = ['#abe2f7', '#2eb7ed', '#b1eb9c', '#ff748c', '#a8a2d2', '#96d6c3', '#ffc0cb', '#a369cf', '#a8a2d2', '#9c58a1', '#dd3f4e', '#b91655', '#db2879', '#dd6ba7', '#df4018', '#ffe001', '#1d57a9', '#1e90ff', '#579abe', '#dc322f', '#2aa198'];
-    //for (var i = 0; i < locations.length; i++) {
-    //    locations_colours[locations[i]] = darktheme[i];
-    //}
-    //var idstring = destinations + 'tt';
-    //var tableid = destinations + 'table';
-    //var ttstring = '<table id="' + tableid + '">';
 	var idstring = destinations + 'tt';
 	var string = ''
 	var destinationsNames = {'GRC': 'Greece', 'THA' : 'Thailand', 'VNM': 'Vietnam', 
@@ -235,20 +228,19 @@ function destinations_table(destinations, column) {
 							 'CAN' : 'Canada'  
                   };
 	
-	//if (destinations == "GRC") {
-		//var colour = darktheme[0];
-		//var locations_style_string = 'style="color:' + colour + '"';
-        //ttstring += '<td ' + locations_style_string + '>' + 'My time in Greece.' + '</td>';
-		//ttstring += '<tr>';
-		//ttstring += '<td></td>';
-		//ttstring += '<tr>';
-		//ttstring += '<td ' + locations_style_string + '>' + 'When I am there.' + '</td>';
-		//string += '<h4>' +  'this is example text' + '</h4>';	
-		//string += '<img src="Athens.jpg" alt="Athens" style="width:15%">';
-		//string += '<h4 style="color:#b1eb9c;">' +  'this is example text' + '</h4>';	
+	if (destinations == "PER") {
+		var colour = darktheme[0];
+		var locations_style_string = 'style="color:' + colour + '"';
+		string += '<h4>' +  'this is example text' + '</h4>';	
+		string += '<img src="Peru.jpg" alt="Peru" style="width:15%">';
+		string += '<h4 style="color:#b1eb9c;">' +  'this is example text' + '</h4>';	
 		
-    //}
-	
+    }
+	//else {
+	//	string += '<h4>' +  'this is a place holder' + '</h4>';
+	//}
+
+// add unique stuff here? 	
 	
 	document.getElementById(idstring).innerHTML = string;	
 //document.getElementById(idstring).innerHTML = ttstring;
@@ -265,15 +257,7 @@ function destinations_tab(destinations) {
     var buttonstring = '';
     buttonstring += '<button onmouseover="wherearethey(\'' + destinations + '\')" ';
     buttonstring += 'onmouseout="resethover()" ';
-    //buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
-	//if (destinations == 'THA') {
-	//	buttonstring += 'class="tablinks" onclick="href = "adawsmith.github.io/Thailand.html";" >' + destinations;
-	//	//buttonstring += 'class="tablinks" onclick="location.href = "https://adawsmith.github.io/Thailand.html";" >' + destinations;
-	//}
-	//else {
-		//buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
-	buttonstring += 'class="tablinks" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
-	//}
+	buttonstring += 'class="tablinks" id="'+destinations+'1" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
     buttonstring += '</button>'
     document.getElementById('tabs').innerHTML += buttonstring;
     // add the tab itself
@@ -282,6 +266,9 @@ function destinations_tab(destinations) {
     var idstring = destinations + 'tt';
     tabstring += '<div id=' + idstring + '>';
     tabstring += '</div>';
+//	console.log(buttonstring)
+//	console.log(idstring)
+//	console.log(tabstring)
     document.getElementById('destinationstabs').innerHTML += tabstring;
 	
 }
@@ -458,9 +445,6 @@ function puttime() {
 	
 }
 
-// teacher = destinations
-// lessons = locations
-
 
 function setup() {
     //md_table();
@@ -471,12 +455,14 @@ function setup() {
     }
     for (var i = 0; i < destinations.length; i++) {
         destinations_table(destinations[i], i);
+		//console.log(destinations[i])
     }
     var wholepage = document.getElementsByTagName('html')[0];
     wholepage.style.height = '100%';
     wholepage.style.background = '#373634';
 	// #373634   #1c2227
-    document.getElementById('initialFocus').click();
+	//document.getElementById('initialFocus').click();
+	document.getElementById('PER1').click();
     setInterval(puttime, 0); 
 }
 window.onload = setup;
