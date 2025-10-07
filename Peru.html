@@ -151,6 +151,9 @@ function openTab(evt, tabName) {
 	if (tabName == 'destinations'){
 	location.replace("https://adawsmith.github.io/")
 	}
+	if (tabName == 'SGP'){
+	location.replace("https://adawsmith.github.io/Singapore.html")
+	}
 	if (tabName == 'THA'){
 	location.replace("https://adawsmith.github.io/Thailand.html")
 	}
@@ -223,7 +226,7 @@ function destinations_table(destinations, column) {
     var darktheme = ['#abe2f7', '#2eb7ed', '#b1eb9c', '#ff748c', '#a8a2d2', '#96d6c3', '#ffc0cb', '#a369cf', '#a8a2d2', '#9c58a1', '#dd3f4e', '#b91655', '#db2879', '#dd6ba7', '#df4018', '#ffe001', '#1d57a9', '#1e90ff', '#579abe', '#dc322f', '#2aa198'];
 	var idstring = destinations + 'tt';
 	var string = ''
-	var destinationsNames = {'GRC': 'Greece', 'THA' : 'Thailand', 'VNM': 'Vietnam', 
+	var destinationsNames = {'GRC': 'Greece', 'SGP' : 'Singapore', 'THA' : 'Thailand', 'VNM': 'Vietnam', 
 							 'CHN': 'China', 'JPN': 'Japan', 'NZL': 'New Zealand', 
 							 'AUS': 'Australia', 'PER' : 'Peru', 'CHL' : 'Chile', 
 							 'CAN' : 'Canada'  
@@ -249,7 +252,7 @@ function destinations_table(destinations, column) {
 }
 
 function destinations_tab(destinations) {
-    var destinationsNames = {'GRC': 'Greece', 'THA' : 'Thailand', 'VNM': 'Vietnam', 
+	var destinationsNames = {'GRC': 'Greece', 'SGP' : 'Singapore', 'THA' : 'Thailand', 'VNM': 'Vietnam', 
 							 'CHN': 'China', 'JPN': 'Japan', 'NZL': 'New Zealand', 
 							 'AUS': 'Australia', 'PER' : 'Peru', 'CHL' : 'Chile', 
 							 'CAN' : 'Canada'  
@@ -289,10 +292,10 @@ function getdestinationsindex(destinations) {
 // teacher = destinations
 // lessons = locations
 function wherearethey(destinations) {
-    var destinationsNames = {'GRC': 'Greece', 'THA' : 'Thailand', 'VNM': 'Vietnam', 
+	var destinationsNames = {'GRC': 'Greece', 'SGP' : 'Singapore', 'THA' : 'Thailand', 'VNM': 'Vietnam', 
 							 'CHN': 'China', 'JPN': 'Japan', 'NZL': 'New Zealand', 
 							 'AUS': 'Australia', 'PER' : 'Peru', 'CHL' : 'Chile', 
-							 'CAN' : 'Canada'
+							 'CAN' : 'Canada'  
                   };
     var timeofday = document.getElementById('hiddentime').innerHTML;
     var weeknumber = document.getElementById('hiddenweek').innerHTML;
@@ -318,9 +321,13 @@ function getlocations1(destinations) {
          {
         locations = "08.10.25 - 15.10.25";
     }
+	else if (destinations == 'SGP')
+         {
+        locations = "15.10.25 - 24.10.25";
+    }
 	else if (destinations == 'THA')
          {
-        locations = "15.10.25 - 19.11.25";
+        locations = "25.10.25 - 19.11.25";
     }
 	else if (destinations == 'VNM')
          {
@@ -365,47 +372,50 @@ function getlocations1(destinations) {
 
 
 function getlocations() {
-    if ((Date.parse('October 24, 2022') < Date.now() && Date.now() < Date.parse('October 7, 2025'))
+    if ((Date.parse('October 24, 2022') < Date.now() && Date.now() <= Date.parse('October 7, 2025'))
         ) {
         locations = 0;
     }
-	else if ((Date.parse('September 8, 2025') < Date.now() && Date.now() < Date.parse('October 14, 2025'))
+	else if ((Date.parse('October 8, 2025') <= Date.now() && Date.now() <= Date.parse('October 14, 2025'))
         ) {
         locations = "Greece";
     }
-	else if ((Date.parse('October 15, 2025') < Date.now() && Date.now() < Date.parse('November 18, 2025'))
+	else if ((Date.parse('October 15, 2025') <= Date.now() && Date.now() <= Date.parse('October 24, 2025'))
+        ) {
+        locations = "Singapore";
+	else if ((Date.parse('October 25, 2025') <= Date.now() && Date.now() <= Date.parse('November 18, 2025'))
         ) {
         locations = "Thailand";
     }
-	else if ((Date.parse('November 19, 2025') < Date.now() && Date.now() < Date.parse('December 16, 2025'))
+	else if ((Date.parse('November 19, 2025') <= Date.now() && Date.now() <= Date.parse('December 16, 2025'))
         ) {
         locations = "Vietnam";
     }
-	else if ((Date.parse('December 17, 2025') < Date.now() && Date.now() < Date.parse('January  20, 2026'))
+	else if ((Date.parse('December 17, 2025') <= Date.now() && Date.now() <= Date.parse('January  20, 2026'))
         ) {
         locations = "China";
     }
-	else if ((Date.parse('January 21, 2026') < Date.now() && Date.now() < Date.parse('February 17, 2026'))
+	else if ((Date.parse('January 21, 2026') <= Date.now() && Date.now() <= Date.parse('February 17, 2026'))
         ) {
         locations = "Japan";
     }
-	else if ((Date.parse('February 18, 2026') < Date.now() && Date.now() < Date.parse('March 17, 2026'))
+	else if ((Date.parse('February 18, 2026') <= Date.now() && Date.now() <= Date.parse('March 17, 2026'))
         ) {
         locations = "New Zealand";
     }
-	else if ((Date.parse('March 18, 2026') < Date.now() && Date.now() < Date.parse('April 15, 2026'))
+	else if ((Date.parse('March 18, 2026') <= Date.now() && Date.now() <= Date.parse('April 15, 2026'))
         ) {
         locations = "Australia";
     }
-	else if ((Date.parse('April 16, 2026') < Date.now() && Date.now() < Date.parse('May 5, 2026'))
+	else if ((Date.parse('April 16, 2026') <= Date.now() && Date.now() <= Date.parse('May 5, 2026'))
         ) {
         locations = "Peru";
     }
-	else if ((Date.parse('May 6, 2026') < Date.now() && Date.now() < Date.parse('May 19, 2026'))
+	else if ((Date.parse('May 6, 2026') <= Date.now() && Date.now() <= Date.parse('May 19, 2026'))
         ) {
         locations = "Chile";
     }
-	else if ((Date.parse('May 20, 2026') < Date.now() && Date.now() < Date.parse('May 30, 2026'))
+	else if ((Date.parse('May 20, 2026') <= Date.now() && Date.now() <= Date.parse('May 30, 2026'))
         ) {
         locations = "Canada";
     }
@@ -446,6 +456,9 @@ function puttime() {
 	
 }
 
+// teacher = destinations
+// lessons = locations
+
 
 function setup() {
     //md_table();
@@ -456,18 +469,16 @@ function setup() {
     }
     for (var i = 0; i < destinations.length; i++) {
         destinations_table(destinations[i], i);
-		//console.log(destinations[i])
     }
     var wholepage = document.getElementsByTagName('html')[0];
     wholepage.style.height = '100%';
     wholepage.style.background = '#373634';
 	// #373634   #1c2227
-	//document.getElementById('initialFocus').click();
-	document.getElementById('PER1').click();
+    document.getElementById('initialFocus').click();
     setInterval(puttime, 0); 
 }
 window.onload = setup;
-var tt = [["",'GRC', 'THA', 'VNM','CHN', 'JPN', 'NZL', 'AUS', 'PER' , 'CHL', 'CAN'],[" "," "," "," "," "," "," "," "," "," "," "]]
+var tt = [["",'GRC', 'SGP', 'THA', 'VNM','CHN', 'JPN', 'NZL', 'AUS', 'PER' , 'CHL', 'CAN'],[" "," "," "," "," "," "," "," "," "," "," "]]
 
 
 

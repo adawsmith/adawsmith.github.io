@@ -151,18 +151,18 @@ function openTab(evt, tabName) {
 	if (tabName == 'destinations'){
 	location.replace("https://adawsmith.github.io/")
 	}
-	if (tabName == 'SGP'){
-	location.replace("https://adawsmith.github.io/Singapore.html")
-	}
+	//if (tabName == 'SGP'){
+	//location.replace("https://adawsmith.github.io/Singapore.html")
+	//}
 	if (tabName == 'THA'){
 	location.replace("https://adawsmith.github.io/Thailand.html")
 	}
 	if (tabName == 'GRC'){
 	location.replace("https://adawsmith.github.io/Greece.html")
 	}
-	//if (tabName == 'VNM'){
-	//location.replace("https://adawsmith.github.io/Vietnam.html")
-	//}
+	if (tabName == 'VNM'){
+	location.replace("https://adawsmith.github.io/Vietnam.html")
+	}
 	if (tabName == 'CHN'){
 	location.replace("https://adawsmith.github.io/China.html")
 	}
@@ -184,7 +184,6 @@ function openTab(evt, tabName) {
 	if (tabName == 'CAN'){
 	location.replace("https://adawsmith.github.io/Canada.html")
 	}
-	
 }
 
 function get_locations(column) {
@@ -232,11 +231,11 @@ function destinations_table(destinations, column) {
 							 'CAN' : 'Canada'  
                   };
 	
-	if (destinations == "VNM") {
+	if (destinations == "SGP") {
 		var colour = darktheme[0];
 		var locations_style_string = 'style="color:' + colour + '"';
 		string += '<h4>' +  'this is example text' + '</h4>';	
-		string += '<img src="Vietnam.png" alt="Vietnam" style="width:15%">';
+		string += '<img src="Singapore.png" alt="Singapore" style="width:15%">';
 		string += '<h4 style="color:#b1eb9c;">' +  'this is example text' + '</h4>';	
 		
     }
