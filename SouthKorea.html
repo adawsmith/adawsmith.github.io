@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name='keywords' content="javascript, html, html5, Jake, Baker, maths, algorithm">
+<meta name='description' content="Aston's website with javascrip">
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta http-equiv="refresh" content="500" > 
+<title>Aston's adventure</title>
+<style>
+body {font-family: Arial;}
+img {
+  width: 20%;
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #252525; /* light theme #ccc; */
+  background-color: #333333; /* light theme #f1f1f1; */
+  height: 100%;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #222222; /* light theme #ddd; */
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #252525; /* light theme #ccc; */
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* style the tablinks text */
+.tablinks {
+    color: #d3d3b3;
+}
+
+/* style the tables */
+table {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    table-layout: auto;
+    font-size: 70%;
+    color: #d3d3b3;
+}
+td {
+    border: 1px solid grey;
+}
+
+.td1 {
+    color: #b3c3d3;
+}
+.td2 {
+    color: #c3b3d3;
+}
+.td3 {
+    color: #268bd2;
+}
+.td4 {
+    color: #2aa198;
+}
+
+h4, p{
+    color: #abe2f7;
+}
+
+/* style the h3 */
+h3, p{
+    color: #d3d3b3;
+}
+
+img{
+  margin: 5px;
+}
+
+
+</style>
+</head>
+<body>
+
+<h3>Aston's adventure</h3>
+<p id="timedate"><br></p>
+<span style="display:none" id="hiddentime"></span>
+<span style="display:none" id="hiddenweek"></span>
+<span style="display:none" id="hiddenday"></span>
+
+<p id='info'>Hover over a destination to find the dates I will be visiting each country.</p>
+<div class="tab" id="tabs">
+  <button class="tablinks" id="initialFocus" onclick="openTab(event, 'destinations')">Destinations</button>
+  <!-- <button class="tablinks" id="initialFocus">Destinations</button> -->
+</div>
+
+<div id="destinations" class="tabcontent">
+  <h3>Aston's travel destinations</h3>
+  <h4 style="color:#96d6c3;">Add text here for main page</h4>
+  
+  
+  
+      <div id='dest'>
+      </div>
+</div>
+
+
+
+
+<div id='destinationstabs'>
+</div>
+<script>
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+	if (tabName == 'destinations'){
+	location.replace("https://adawsmith.github.io/")
+	}
+	if (tabName == 'SGP'){
+	location.replace("https://adawsmith.github.io/Singapore.html")
+	}
+	if (tabName == 'THA'){
+	location.replace("https://adawsmith.github.io/Thailand.html")
+	}
+	if (tabName == 'GRC'){
+	location.replace("https://adawsmith.github.io/Greece.html")
+	}
+	//if (tabName == 'KOR'){
+	//location.replace("https://adawsmith.github.io/SouthKorea.html")
+	//}
+	if (tabName == 'VNM'){
+	location.replace("https://adawsmith.github.io/Vietnam.html")
+	}
+	if (tabName == 'CHN'){
+	location.replace("https://adawsmith.github.io/China.html")
+	}
+	if (tabName == 'JPN'){
+	location.replace("https://adawsmith.github.io/Japan.html")
+	}
+	if (tabName == 'NZL'){
+	location.replace("https://adawsmith.github.io/NewZealand.html")
+	}
+	if (tabName == 'AUS'){
+	location.replace("https://adawsmith.github.io/Australia.html")
+	}
+	if (tabName == 'PER'){
+	location.replace("https://adawsmith.github.io/Peru.html")
+	}
+	if (tabName == 'CHL'){
+	location.replace("https://adawsmith.github.io/Chile.html")
+	}
+	if (tabName == 'CAN'){
+	location.replace("https://adawsmith.github.io/Canada.html")
+	}
+	
+}
+
+function get_locations(column) {
+    // return a list of locations
+    var locations = [];
+    for (var j = 1; j < tt.length; j++) {
+        locations.push(tt[j][column]);
+    }
+    var distinct_locations = [];
+    for (var k = 0; k < locations.length; k++) {
+        if (!distinct_locations.includes(locations[k]) && locations[k] != '' && locations[k] != tt[0][column]) {
+            distinct_locations.push(locations[k]);
+        }
+    }
+    return distinct_locations;
+}
+
+function md_table() {
+    var t_width = tt[0].length;
+    var t_height = tt.length;
+    var ttstring = '<table>';
+    for (var j = 0; j < t_height; j++) {
+        ttstring += '<tr>'
+        if (0 <= j && j < 31) { tdcolour = 'td1';}
+        else if(31 <= j && j < 62) { tdcolour = 'td2';}
+        else if(62 <= j && j < 93) { tdcolour = 'td3';}
+        else { tdcolour = 'td4';}
+        for (var i = 0; i < t_width; i++) {
+            ttstring += '<td  class="' + tdcolour + '">' + tt[j][i] + '</td>';
+        }
+        ttstring += '</tr>';
+    }
+    ttstring += '</table>';
+    document.getElementById('dest').innerHTML = ttstring;
+}
+
+function destinations_table(destinations, column) {
+    var locations = get_locations(column + 1);
+    var darktheme = ['#abe2f7', '#2eb7ed', '#b1eb9c', '#ff748c', '#a8a2d2', '#96d6c3', '#ffc0cb', '#a369cf', '#a8a2d2', '#9c58a1', '#dd3f4e', '#b91655', '#db2879', '#dd6ba7', '#df4018', '#ffe001', '#1d57a9', '#1e90ff', '#579abe', '#dc322f', '#2aa198'];
+	var idstring = destinations + 'tt';
+	var string = ''
+	var destinationsNames = {'GRC': 'Greece', 'SGP' : 'Singapore', 'THA' : 'Thailand', 'KOR': 'South Korea', 'VNM': 'Vietnam', 
+							 'CHN': 'China', 'JPN': 'Japan', 'NZL': 'New Zealand', 
+							 'AUS': 'Australia', 'PER' : 'Peru', 'CHL' : 'Chile', 
+							 'CAN' : 'Canada'  
+                  };
+	
+	if (destinations == "KOR") {
+		var colour = darktheme[0];
+		var locations_style_string = 'style="color:' + colour + '"';
+		string += '<h4>' +  'this is example text' + '</h4>';	
+		string += '<img src="SouthKorea.png" alt="South Korea" style="width:15%">';
+		string += '<h4 style="color:#b1eb9c;">' +  'this is example text' + '</h4>';	
+		
+    }
+	//else {
+	//	string += '<h4>' +  'this is a place holder' + '</h4>';
+	//}
+
+// add unique stuff here? 	
+	
+	document.getElementById(idstring).innerHTML = string;	
+//document.getElementById(idstring).innerHTML = ttstring;
+//document.getElementById(tableid).style.fontSize = '100%';
+}
+
+function destinations_tab(destinations) {
+	var destinationsNames = {'GRC': 'Greece', 'SGP' : 'Singapore', 'THA' : 'Thailand', 'VNM': 'Vietnam', 
+							 'CHN': 'China', 'JPN': 'Japan', 'NZL': 'New Zealand', 
+							 'AUS': 'Australia', 'PER' : 'Peru', 'CHL' : 'Chile', 
+							 'CAN' : 'Canada'  
+                  };
+    // add tab button
+    var buttonstring = '';
+    buttonstring += '<button onmouseover="wherearethey(\'' + destinations + '\')" ';
+    buttonstring += 'onmouseout="resethover()" ';
+	buttonstring += 'class="tablinks" id="'+destinations+'1" onclick="openTab(event, \'' + destinations +'\')">' + destinations;
+    buttonstring += '</button>'
+    document.getElementById('tabs').innerHTML += buttonstring;
+    // add the tab itself
+    var tabstring = '<div id="' + destinations + '" class="tabcontent">';
+    tabstring += '<h3>' + destinationsNames[destinations] + '</h3>';
+    var idstring = destinations + 'tt';
+    tabstring += '<div id=' + idstring + '>';
+    tabstring += '</div>';
+//	console.log(buttonstring)
+//	console.log(idstring)
+//	console.log(tabstring)
+    document.getElementById('destinationstabs').innerHTML += tabstring;
+	
+}
+
+function get_destinations() {
+    var destinationslist = tt[0];
+    return destinationslist.slice(1);
+}
+
+function getdestinationsindex(destinations) {
+    var index = 0;
+    for (var i = 1; i < tt[0].length; i++) {
+        if (tt[0][i] == destinations) {return i;}
+    }
+    return null;
+}
+// teacher = destinations
+// lessons = locations
+function wherearethey(destinations) {
+	var destinationsNames = {'GRC': 'Greece', 'SGP' : 'Singapore', 'THA' : 'Thailand', 'KOR': 'South Korea', 'VNM': 'Vietnam', 
+							 'CHN': 'China', 'JPN': 'Japan', 'NZL': 'New Zealand', 
+							 'AUS': 'Australia', 'PER' : 'Peru', 'CHL' : 'Chile', 
+							 'CAN' : 'Canada'  
+                  };
+    var timeofday = document.getElementById('hiddentime').innerHTML;
+    var weeknumber = document.getElementById('hiddenweek').innerHTML;
+    var daynumber = document.getElementById('hiddenday').innerHTML;
+    var locations = getlocations1(destinations);
+    var index = getdestinationsindex(destinations);
+    var infostring = '';
+	if (locations == 0) {
+        infostring = 'Aston is not traveling at this time.';
+    }
+    else {
+        infostring = "Dates: " + locations; // change to be when will be in each place.
+    }
+    document.getElementById('info').innerHTML = infostring;
+}
+
+function resethover() {
+    document.getElementById('info').innerHTML = "Hover over a destination to find the dates I will be visiting each country.";
+}
+
+function getlocations1(destinations) {
+	if (destinations == 'GRC')
+         {
+        locations = "08.10.25 - 15.10.25";
+    }
+	else if (destinations == 'SGP')
+         {
+        locations = "15.10.25 - 24.10.25";
+    }
+	else if (destinations == 'THA')
+         {
+        locations = "25.10.25 - 12.11.25";
+    }
+	else if (destinations == 'KOR')
+         {
+        locations = "12.11.25 - 19.11.25";
+    }
+	else if (destinations == 'VNM')
+         {
+        locations = "19.11.25 - 17.12.25";
+    }
+	else if (destinations == 'CHN')
+         {
+        locations = "17.12.25 - 21.01.26";
+    }
+	else if (destinations == 'JPN')
+         {
+        locations = "21.01.26 - 18.02.26";
+    }
+	else if (destinations == 'NZL')
+         {
+        locations = "18.02.26 - 18.03.26";
+    }
+	else if (destinations == 'AUS')
+         {
+        locations = "18.03.26 - 16.04.26";
+    }
+	else if (destinations == 'PER')
+         {
+        locations = "16.04.26 - 06.05.26";
+    }
+	else if (destinations == 'CHL')
+         {
+        locations = "06.05.26 - 20.05.26";
+    }
+	else if (destinations == 'CAN')
+         {
+        locations = "20.05.26 - 30.05.26";
+    }
+	else {
+        locations = 0;
+    }
+	
+    return locations;
+}
+
+
+
+
+function getlocations() {
+    if ((Date.parse('October 24, 2022') < Date.now() && Date.now() <= Date.parse('October 7, 2025'))
+        ) {
+        locations = 0;
+    }
+	else if ((Date.parse('October 8, 2025') <= Date.now() && Date.now() <= Date.parse('October 14, 2025'))
+        ) {
+        locations = "Greece";
+    }
+	else if ((Date.parse('October 15, 2025') <= Date.now() && Date.now() <= Date.parse('October 24, 2025'))
+        ) {
+        locations = "Singapore";
+	}
+	else if ((Date.parse('October 25, 2025') <= Date.now() && Date.now() <= Date.parse('November 11, 2025'))
+        ) {
+        locations = "Thailand";
+	}
+	else if ((Date.parse('November 12, 2025') <= Date.now() && Date.now() <= Date.parse('November 18, 2025'))
+        ) {
+        locations = "South Korea";
+    }
+	else if ((Date.parse('November 19, 2025') <= Date.now() && Date.now() <= Date.parse('December 16, 2025'))
+        ) {
+        locations = "Vietnam";
+    }
+	else if ((Date.parse('December 17, 2025') <= Date.now() && Date.now() <= Date.parse('January  20, 2026'))
+        ) {
+        locations = "China";
+    }
+	else if ((Date.parse('January 21, 2026') <= Date.now() && Date.now() <= Date.parse('February 17, 2026'))
+        ) {
+        locations = "Japan";
+    }
+	else if ((Date.parse('February 18, 2026') <= Date.now() && Date.now() <= Date.parse('March 17, 2026'))
+        ) {
+        locations = "New Zealand";
+    }
+	else if ((Date.parse('March 18, 2026') <= Date.now() && Date.now() <= Date.parse('April 15, 2026'))
+        ) {
+        locations = "Australia";
+    }
+	else if ((Date.parse('April 16, 2026') <= Date.now() && Date.now() <= Date.parse('May 5, 2026'))
+        ) {
+        locations = "Peru";
+    }
+	else if ((Date.parse('May 6, 2026') <= Date.now() && Date.now() <= Date.parse('May 19, 2026'))
+        ) {
+        locations = "Chile";
+    }
+	else if ((Date.parse('May 20, 2026') <= Date.now() && Date.now() <= Date.parse('May 30, 2026'))
+        ) {
+        locations = "Canada";
+    }
+	else {
+        locations = 0;
+    }
+	
+    return locations;
+}
+
+function puttime() {
+    var now = new Date();
+    var travelweeks = [0, 1, 2, 3, 4, 5, 6, 7, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+        15, 15, 16, 17, 18, 19, 20, 20, 21, 22, 23, 24, 25, 26, 26, 26, 27, 28, 29, 30,
+        31, 32, 32, 33, 34, 35, 36, 37, 38, 39]; // travelweeks[i] will give the actual number of week i
+    var date = now.toLocaleString('en-GB', { dateStyle: 'full',
+                                            timeStyle: 'medium'
+                                           });
+    var h = now.getHours() - 9;
+    var m = now.getMinutes();
+    var hiddentime = h * 60 + m; // zero at 0900, so minutes after 0900
+    var millissince29aug2022 = Date.now() - Date.parse("September 01, 2025");
+    var minutessince29aug2022 = Math.floor(millissince29aug2022 / (1000 * 60));
+    // number of minutes in a week = 10080
+    // numberof minutes in a day = 1440
+    var weeknumber = travelweeks[Math.floor(minutessince29aug2022 / 10080)] % 2;
+    var daynumber = Math.floor((minutessince29aug2022 % 10080) / 1440);
+	var locations = getlocations();
+    if (locations == 0) {
+		infostring = 'Aston is currently not travelling.';
+    } else {
+        infostring = "Aston is currently in " + locations;
+    }
+    document.getElementById('timedate').innerHTML = date + '. '+ '<br>'+ infostring;
+    document.getElementById('hiddentime').innerHTML = hiddentime; // minutes since 0900
+    document.getElementById('hiddenweek').innerHTML = weeknumber; // weeknumber where 31 Aug is 0
+    document.getElementById('hiddenday').innerHTML = daynumber; // day number where Mon is 0
+	
+}
+
+// teacher = destinations
+// lessons = locations
+
+
+function setup() {
+    //md_table();
+    var destinations = get_destinations();
+    // make a tab for each teacher
+    for (var i = 0; i < destinations.length; i++) {
+        destinations_tab(destinations[i]);
+    }
+    for (var i = 0; i < destinations.length; i++) {
+        destinations_table(destinations[i], i);
+    }
+    var wholepage = document.getElementsByTagName('html')[0];
+    wholepage.style.height = '100%';
+    wholepage.style.background = '#373634';
+	// #373634   #1c2227
+    document.getElementById('KOR1').click();
+    setInterval(puttime, 0); 
+}
+window.onload = setup;
+var tt = [["",'GRC', 'SGP', 'THA', 'KOR', 'VNM','CHN', 'JPN', 'NZL', 'AUS', 'PER' , 'CHL', 'CAN'],[" "," "," "," "," "," "," "," "," "," "," "," "]]
+
+
+
+</script>
+
+</body>
+</html>

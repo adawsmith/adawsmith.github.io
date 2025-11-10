@@ -186,7 +186,9 @@ function openTab(evt, tabName) {
 	if (tabName == 'CAN'){
 	location.replace("https://adawsmith.github.io/Canada.html")
 	}
-	
+	if (tabName == 'KOR'){
+	location.replace("https://adawsmith.github.io/SouthKorea.html")
+	}
 }
 
 function get_locations(column) {
@@ -228,7 +230,7 @@ function destinations_table(destinations, column) {
     var darktheme = ['#abe2f7', '#2eb7ed', '#b1eb9c', '#ff748c', '#a8a2d2', '#96d6c3', '#ffc0cb', '#a369cf', '#a8a2d2', '#9c58a1', '#dd3f4e', '#b91655', '#db2879', '#dd6ba7', '#df4018', '#ffe001', '#1d57a9', '#1e90ff', '#579abe', '#dc322f', '#2aa198'];
 	var idstring = destinations + 'tt';
 	var string = ''
-	var destinationsNames = {'GRC': 'Greece', 'SGP' : 'Singapore', 'THA' : 'Thailand', 'VNM': 'Vietnam', 
+	var destinationsNames = {'GRC': 'Greece', 'SGP' : 'Singapore', 'THA' : 'Thailand', 'KOR': 'South Korea', 'VNM': 'Vietnam', 
 							 'CHN': 'China', 'JPN': 'Japan', 'NZL': 'New Zealand', 
 							 'AUS': 'Australia', 'PER' : 'Peru', 'CHL' : 'Chile', 
 							 'CAN' : 'Canada'  
@@ -286,7 +288,7 @@ function destinations_table(destinations, column) {
 }
 
 function destinations_tab(destinations) {
-	var destinationsNames = {'GRC': 'Greece', 'SGP' : 'Singapore', 'THA' : 'Thailand', 'VNM': 'Vietnam', 
+	var destinationsNames = {'GRC': 'Greece', 'SGP' : 'Singapore', 'THA' : 'Thailand', 'KOR': 'South Korea', 'VNM': 'Vietnam', 
 							 'CHN': 'China', 'JPN': 'Japan', 'NZL': 'New Zealand', 
 							 'AUS': 'Australia', 'PER' : 'Peru', 'CHL' : 'Chile', 
 							 'CAN' : 'Canada'  
@@ -361,7 +363,11 @@ function getlocations1(destinations) {
     }
 	else if (destinations == 'THA')
          {
-        locations = "25.10.25 - 19.11.25";
+        locations = "25.10.25 - 12.11.25";
+    }
+	else if (destinations == 'KOR')
+         {
+        locations = "12.11.25 - 19.11.25";
     }
 	else if (destinations == 'VNM')
          {
@@ -418,9 +424,13 @@ function getlocations() {
         ) {
         locations = "Singapore";
 	}
-	else if ((Date.parse('October 25, 2025') <= Date.now() && Date.now() <= Date.parse('November 18, 2025'))
+	else if ((Date.parse('October 25, 2025') <= Date.now() && Date.now() <= Date.parse('November 11, 2025'))
         ) {
         locations = "Thailand";
+	}
+	else if ((Date.parse('November 12, 2025') <= Date.now() && Date.now() <= Date.parse('November 18, 2025'))
+        ) {
+        locations = "South Korea";
     }
 	else if ((Date.parse('November 19, 2025') <= Date.now() && Date.now() <= Date.parse('December 16, 2025'))
         ) {
@@ -513,7 +523,7 @@ function setup() {
     setInterval(puttime, 0); 
 }
 window.onload = setup;
-var tt = [["",'GRC', 'SGP', 'THA', 'VNM','CHN', 'JPN', 'NZL', 'AUS', 'PER' , 'CHL', 'CAN'],[" "," "," "," "," "," "," "," "," "," "," "," "]]
+var tt = [["",'GRC', 'SGP', 'THA', 'KOR', 'VNM','CHN', 'JPN', 'NZL', 'AUS', 'PER' , 'CHL', 'CAN'],[" "," "," "," "," "," "," "," "," "," "," "," "]]
 
 
 
